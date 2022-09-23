@@ -5,7 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import ReplySerializer
 from .models import Reply
-from reply import serializers
+from Reply import serializers
 # Create your views here.
 
 @api_view(['POST'])
