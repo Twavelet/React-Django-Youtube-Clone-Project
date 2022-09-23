@@ -23,4 +23,4 @@ def reply_detail(request, pk):
     reply= get_object_or_404(Reply, pk=pk)
     if request.method == 'GET':
         serializer = ReplySerializer(reply)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
