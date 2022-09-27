@@ -1,31 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 
-const SearchPage = () => {
+const SearchPage = (props) => {
 
     const [search, setSearch] = useState([])
     //API call #1 Searching for a video based on a query
     //https://www.googleapis.com/youtube/v3/search?q={SEARCH QUERY HERE}&key=AIzaSyAGD9V8FT2RGzoRY2gn1RDnEiiKR-izXj8 
     async function searchPage(){
-        const response = await axios.get(`//https://www.googleapis.com/youtube/v3/search?q=${props.searchTerm}&key=AIzaSyAGD9V8FT2RGzoRY2gn1RDnEiiKR-izXj8&part=snippet `)
+        const response = await axios.get(`//https://www.googleapis.com/youtube/v3/search?q=${props.searchInput}&key=AIzaSyAGD9V8FT2RGzoRY2gn1RDnEiiKR-izXj8&part=snippet `)
         console.log(response.item)
-        setSearch(response.item)
+        setSearch(response.data.items.snippet.thumbnails.urls)
     }
 
     useEffect(()=>{
         searchPage()
     }, [])
-    
-    function click(){
-        let result = search.map((result) => {
-            return result.item.snippet.thumbnails.url
-        })
-    }
+
+
     
     return(
         <div>
+            {search.map((element) => {
+                return (
+                    <img src={element.default} alt='Video Thumbnail'/>
+                )
+            })}
             
-            <img src={result}></img> 
         </div>
     )
     // return (
@@ -43,4 +43,6 @@ const SearchPage = () => {
        
 //     )
 // }
+}
+export default SearchPage;
 
