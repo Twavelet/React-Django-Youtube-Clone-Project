@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 
 import axios from "axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import SearchPage from "../../components/SearchPage/SearchPage";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -11,6 +12,15 @@ const HomePage = () => {
   //TODO: Add an AddCars Page to add a car for a logged in user's garage
   const [user, token] = useAuth();
   const [videos, setVideos] = useState([]);
+
+  function addNewEntry(video){
+    
+    let tempVideos= [video, ...videos]
+
+    setVideos(tempVideos);
+  }
+
+
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -34,11 +44,13 @@ const HomePage = () => {
       {videos &&
         videos.map((video) => (
           <div key={video.id}>
-            <img src={video.snippet.thumbnails.default.url} alt='Video Thumbnails'/>
+          {video.snippet ? <img src={video.snippet.thumbnails.default.url} alt='Video Thumbnails'/> : null}
           </div>
         ))}
         <div>
-          <SearchBar/>
+          <SearchBar addNewSearchProperty={addNewEntry}/>
+          <SearchPage searchInput={videos}/>
+
         </div>
     </div>
   );
