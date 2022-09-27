@@ -10,6 +10,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
+// import SearchPage from '../../components/SearchPage'
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
@@ -18,6 +19,7 @@ function App() {
   return (
     <div>
       <Navbar />
+      {/* <SearchPage/> */}
       <Routes>
         <Route
           path="/"
