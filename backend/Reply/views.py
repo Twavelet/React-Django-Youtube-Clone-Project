@@ -6,11 +6,6 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import ReplySerializer
 from .models import Reply
-<<<<<<< HEAD
-from Reply import serializers
-=======
-
->>>>>>> 042ad1c16a5b8068c54697b5b2701e929c0c585d
 # Create your views here.
 
 @api_view(['POST'])
@@ -40,6 +35,7 @@ def reply_detail(request, pk):
     #     cars = Car.objects.filter(user_id=request.user.id)
     #     serializer = CarSerializer(cars, many=True)
     #     return Response(serializer.data)
+
 
 
     # reply= get_object_or_404(Reply, pk=pk)
