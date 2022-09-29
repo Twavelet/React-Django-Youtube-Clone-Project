@@ -1,21 +1,22 @@
 import React from "react";
 import { useState } from "react";
-// import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const SearchBar = (props) => {
 
     const [searchInput, setSearchInput] = useState([])
     
-    
+    const navigate = useNavigate()
  
 
     
     const searchHandler = (event) => {
         event.preventDefault()
         let newSearch = searchInput
-        
         props.addNewSearchProperty(newSearch)
+        navigate('/search/searchPage')
+
         
     }
     

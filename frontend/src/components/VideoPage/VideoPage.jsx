@@ -7,15 +7,28 @@ const VideoPage = (props) => {
 
 
     return(
+    
         <div>
-                    <><h1>Testing to see if the routing works {videoId} </h1>
+        {props.parentData.map((element) => {
+
+            return(
+                <div>
+                    <h1>Testing to see if the routing works {videoId} </h1>
                     <iframe id="ytplayer" type="text/html" width="640" height="360"
                         src={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=http://example.com`}
-                        frameborder="0">
+                        frameborder="0"
+                        title={element.snippet.title}
+                        description={element.snippet.description}>
+                    </iframe>
+                </div>
+            )
+            
+        
 
-                    </iframe></>
-        </div>
-        )
+        
+    })}
+    </div>
+    )
 }
 
 export default VideoPage;
