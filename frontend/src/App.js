@@ -55,7 +55,7 @@ console.log(videos)
             
         <Route path='/search' element={<SearchBar addNewSearchProperty={addNewVideos} />} />  
         <Route path='/search/searchPage' element={<SearchPage search={videos} />} /> 
-        <Route path="/play/:videoId" element={<VideoPage />} />
+        <Route path="/play/:videoId" element={<VideoPage parentData = {videos}/>} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>

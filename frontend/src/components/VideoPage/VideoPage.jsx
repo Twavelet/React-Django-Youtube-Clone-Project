@@ -8,15 +8,14 @@ const VideoPage = (props) => {
 
     return(
         <div>
-            <h1>Testing to see if the routing works {videoId} </h1>
-            {/* <iframe 
-            src="" 
-            title=""
-            >
+                    <><h1>Testing to see if the routing works {videoId} </h1>
+                    <iframe id="ytplayer" type="text/html" width="640" height="360"
+                        src={`https://www.youtube.com/embed/${videoId}?autoplay=1&origin=http://example.com`}
+                        frameborder="0">
 
-            </iframe> */}
+                    </iframe></>
         </div>
-    )
+        )
 }
 
 export default VideoPage;
