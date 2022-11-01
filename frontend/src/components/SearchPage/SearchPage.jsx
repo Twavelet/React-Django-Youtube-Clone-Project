@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const SearchPage = (props) => {
 
     const [search, setSearch] = useState([])
-    const [parentData, SetParentData] = useState([])
+    const [parentData, SetParentData] = useState([search])
     //API call #1 Searching for a video based on a query
     //https://www.googleapis.com/youtube/v3/search?q={SEARCH QUERY HERE}&key=AIzaSyAGD9V8FT2RGzoRY2gn1RDnEiiKR-izXj8 
 
@@ -19,7 +19,7 @@ const SearchPage = (props) => {
         SetParentData(response.data.items)
         
     }
-    console.log('ParentData:' + parentData)
+    
     
 
     useEffect(()=>{
@@ -27,6 +27,7 @@ const SearchPage = (props) => {
     }, [])
 
     console.log(search)
+    console.log(parentData)
     
     return(
         <div>
