@@ -48,7 +48,8 @@ console.log(videos)
           path="/"
           element={
             <PrivateRoute>
-              <HomePage />
+              <HomePage/>
+              {/* <HomePage addNewSearchProperty={addNewVideos}/> */}
             </PrivateRoute>
           }
         />

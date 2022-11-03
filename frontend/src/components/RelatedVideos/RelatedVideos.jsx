@@ -5,18 +5,20 @@ import { Link } from "react-router-dom";
 const RelatedVideo = (props) => {
   const [relatedVideos, setRelatedVideos] = useState([]);
 
-  useEffect =
-    (() => {
-      const getRelatedVideos = async () => {
-        let response = await axios.get(
-          `https://developers.google.com/apis-explorer/#p/youtube/v3/youtube.search.list?part=snippet&type=video&relatedToVideoId=${props.videoId}`
-        );
-        setRelatedVideos(response.data.items);
-      };
+  useEffect(() => {
       getRelatedVideos();
-      debugger;
+      
     },
     [props.videoId]);
+
+    const getRelatedVideos = async () => {
+        let response = await axios.get(
+          `https://www.googleapis.com/youtube/v3/search?part=snippet&relatedToVideoId=${props.videoId}&type=video&key=AIzaSyA1F3oz5SnZzgw2X_FpbVyVEv9l1Rlex7Y`
+        //   `https://developers.google.com/youtube/v3/?part=snippet&relatedToVideoId=${props.videoId}&key=AIzaSyA1F3oz5SnZzgw2X_FpbVyVEv9l1Rlex7Y`
+        );
+        setRelatedVideos(response.data.items);
+        console.log(response.data.items)
+      }
 
   return (
     <div className="container">

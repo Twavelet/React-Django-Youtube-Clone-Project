@@ -8,7 +8,7 @@ import CommentList from "../CommentList/CommentList";
 const VideoPage = (props) => {
   const { videoId } = useParams();
   const [title, setTitle] = useState([]);
-  const [description, setDescription] = useState({});
+  const [description, setDescription] = useState([]);
 
   //   title={element.snippet.title}
   //   description={element.snippet.description}

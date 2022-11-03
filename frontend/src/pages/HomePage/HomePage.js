@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 
 import axios from "axios";
+import SearchBar from "../../components/SearchBar/SearchBar";
 
 
-const HomePage = () => {
+const HomePage = (props) => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
   // The "token" value is the JWT token that you will send in the header of any request requiring authentication
   //TODO: Add an AddCars Page to add a car for a logged in user's garage
@@ -30,6 +31,7 @@ const HomePage = () => {
           // },
         );
         setVideos(response.data.items);
+        console.log(response.data.items)
         
       } catch (error) {
         console.log(error.response.data);
@@ -39,10 +41,11 @@ const HomePage = () => {
   }, [token]);
   return (
     <div className="container">
+      {/* <div><SearchBar addNewSearchProperty={props.addNewSearchProperty}/></div> */}
       <h1>Home Page for {user.username}!</h1>
       {videos &&
         videos.map((video) => (
-          <div key={video.id}>
+          <div key={video.etag}> 
           {video.snippet ? <img src={video.snippet.thumbnails.default.url} alt='Video Thumbnails'/> : null}
           </div>
         ))}
